@@ -1,0 +1,765 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  html {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    overscroll-behavior-y: none;
+  }
+
+  button,
+  [role="button"],
+  a,
+  input[type="range"] {
+    touch-action: manipulation;
+  }
+
+  input[type="range"] {
+    touch-action: pan-x;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .font-brand {
+    font-family: 'Syne', sans-serif;
+  }
+}
+
+/* =====================================================================
+ * v3.1.2 ARCTIC SAPPHIRE 2.0 LIQUID GLASS ENGINE (0–100% Transparency)
+ * Evolved from classic Arctic Sapphire with dual-rim specular depth
+ * ===================================================================== */
+
+:root {
+  --glass-transparency: 72;
+  --glass-alpha: 0.292;
+  --glass-alpha-low: 0.273;
+  --glass-dark-alpha: 0.289;
+  --glass-dark-alpha-low: 0.268;
+  --glass-subj-alpha: 0.296;
+  --glass-subj-alpha-low: 0.259;
+  --glass-control-light: 0.335;
+  --glass-control-dark: 0.304;
+  --glass-chrome-light: 0.292;
+  --glass-chrome-light-low: 0.273;
+  --glass-chrome-dark: 0.289;
+  --glass-chrome-dark-low: 0.268;
+  --glass-modal-light: 0.460;
+  --glass-modal-light-low: 0.360;
+  --glass-modal-dark: 0.500;
+  --glass-modal-dark-low: 0.400;
+  --glass-border-light: 0.802;
+  --glass-border-dark: 0.490;
+}
+
+.arctic-grid-bg {
+  background-image:
+    radial-gradient(rgba(37, 99, 235, 0.14) 1px, transparent 1px),
+    linear-gradient(to right, rgba(255, 255, 255, 0.44) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.44) 1px, transparent 1px);
+  background-size: 24px 24px, 48px 48px, 48px 48px;
+}
+
+.dark .arctic-grid-bg {
+  background-image:
+    radial-gradient(rgba(56, 189, 248, 0.16) 1px, transparent 1px),
+    linear-gradient(to right, rgba(59, 130, 246, 0.10) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(34, 211, 238, 0.08) 1px, transparent 1px);
+  background-size: 24px 24px, 48px 48px, 48px 48px;
+}
+
+.transit-hatch {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(14, 165, 233, 0.14),
+    rgba(14, 165, 233, 0.14) 6px,
+    rgba(255, 255, 255, 0.04) 6px,
+    rgba(255, 255, 255, 0.04) 12px
+  );
+}
+
+.dark .transit-hatch {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgba(56, 189, 248, 0.14),
+    rgba(56, 189, 248, 0.14) 6px,
+    rgba(4, 18, 56, 0.04) 6px,
+    rgba(4, 18, 56, 0.04) 12px
+  );
+}
+
+/* CSS 24h grid lines for TimetableView (replaces 168 DOM nodes with 1 GPU gradient) */
+.timetable-grid-lines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 47px,
+    rgba(37, 99, 235, 0.10) 47px,
+    rgba(37, 99, 235, 0.10) 48px
+  );
+}
+
+.dark .timetable-grid-lines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 47px,
+    rgba(125, 211, 252, 0.10) 47px,
+    rgba(125, 211, 252, 0.10) 48px
+  );
+}
+
+/* Evolved Liquid Glass Surfaces with Specular Top Highlight */
+.ios-glass {
+  background: linear-gradient(
+    144deg,
+    rgba(255, 255, 255, var(--glass-alpha)) 0%,
+    rgba(232, 244, 255, var(--glass-alpha-low)) 64%,
+    rgba(219, 238, 255, var(--glass-alpha-low)) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, var(--glass-border-light));
+  box-shadow:
+    0 6px 18px rgba(14, 48, 122, 0.09),
+    inset 0 1px 0 rgba(255, 255, 255, 0.92),
+    inset 0 -1px 0 rgba(59, 130, 246, 0.08);
+}
+
+.dark .ios-glass {
+  background: linear-gradient(
+    144deg,
+    rgba(16, 52, 138, var(--glass-dark-alpha)) 0%,
+    rgba(7, 25, 76, var(--glass-dark-alpha-low)) 64%,
+    rgba(4, 16, 52, var(--glass-dark-alpha-low)) 100%
+  );
+  border: 1px solid rgba(125, 211, 252, calc(var(--glass-border-dark) * 0.65));
+  box-shadow:
+    0 8px 20px rgba(2, 6, 23, 0.44),
+    inset 0 1px 0 rgba(186, 230, 253, 0.28),
+    inset 0 -1px 0 rgba(34, 211, 238, 0.08);
+}
+
+.ios-glass-strong {
+  background: linear-gradient(
+    142deg,
+    rgba(255, 255, 255, var(--glass-alpha)) 0%,
+    rgba(226, 242, 255, var(--glass-alpha-low)) 58%,
+    rgba(214, 236, 255, var(--glass-alpha-low)) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, var(--glass-border-light));
+  box-shadow:
+    0 10px 24px rgba(14, 48, 122, 0.11),
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.96);
+}
+
+.dark .ios-glass-strong {
+  background: linear-gradient(
+    142deg,
+    rgba(20, 64, 164, var(--glass-dark-alpha)) 0%,
+    rgba(9, 32, 92, var(--glass-dark-alpha-low)) 60%,
+    rgba(6, 22, 68, var(--glass-dark-alpha-low)) 100%
+  );
+  border: 1px solid rgba(125, 211, 252, calc(var(--glass-border-dark) * 0.72));
+  box-shadow:
+    0 12px 26px rgba(2, 6, 23, 0.50),
+    inset 0 1.5px 0 rgba(186, 230, 253, 0.34);
+}
+
+.ios-glass-tile {
+  background: linear-gradient(
+    152deg,
+    rgba(255, 255, 255, var(--glass-alpha)) 0%,
+    rgba(234, 245, 255, var(--glass-alpha-low)) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, var(--glass-border-light));
+  box-shadow:
+    0 4px 14px rgba(14, 48, 122, 0.07),
+    inset 0 1px 0 rgba(255, 255, 255, 0.92);
+}
+
+.dark .ios-glass-tile {
+  background: linear-gradient(
+    152deg,
+    rgba(14, 48, 128, var(--glass-dark-alpha)) 0%,
+    rgba(6, 22, 66, var(--glass-dark-alpha-low)) 100%
+  );
+  border: 1px solid rgba(125, 211, 252, calc(var(--glass-border-dark) * 0.62));
+  box-shadow:
+    0 6px 16px rgba(2, 6, 23, 0.38),
+    inset 0 1px 0 rgba(186, 230, 253, 0.26);
+}
+
+/* Layered Crystal Hero Elevation & Open-Gap Window Surfaces */
+.ios-glass-hero {
+  background: linear-gradient(
+    144deg,
+    rgba(255, 255, 255, clamp(0.24, calc(var(--glass-alpha) + 0.16), 0.98)) 0%,
+    rgba(224, 242, 254, clamp(0.18, calc(var(--glass-alpha-low) + 0.08), 0.94)) 52%,
+    rgba(207, 250, 254, clamp(0.15, var(--glass-alpha-low), 0.92)) 100%
+  );
+  border: 1.5px solid rgba(255, 255, 255, 0.94);
+  box-shadow:
+    0 14px 32px rgba(14, 48, 122, 0.12),
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.98);
+}
+
+.dark .ios-glass-hero {
+  background: linear-gradient(
+    144deg,
+    rgba(24, 74, 186, clamp(0.28, calc(var(--glass-dark-alpha) + 0.14), 0.96)) 0%,
+    rgba(10, 34, 98, clamp(0.22, calc(var(--glass-dark-alpha-low) + 0.06), 0.92)) 58%,
+    rgba(6, 44, 82, clamp(0.20, var(--glass-dark-alpha-low), 0.90)) 100%
+  );
+  border: 1.5px solid rgba(125, 211, 252, 0.40);
+  box-shadow:
+    0 16px 36px rgba(2, 6, 23, 0.56),
+    inset 0 1.5px 0 rgba(186, 230, 253, 0.36);
+}
+
+.ios-glass-gap {
+  background: linear-gradient(
+    135deg,
+    rgba(14, 165, 233, 0.10) 0%,
+    rgba(37, 99, 235, 0.06) 100%
+  );
+  border: 1.5px dashed rgba(2, 132, 199, 0.42);
+}
+
+.dark .ios-glass-gap {
+  background: linear-gradient(
+    135deg,
+    rgba(56, 189, 248, 0.11) 0%,
+    rgba(37, 99, 235, 0.07) 100%
+  );
+  border: 1.5px dashed rgba(125, 211, 252, 0.36);
+}
+
+/* Subject-Tinted Cards connected directly to the 0–100% Transparency Slider */
+.ios-glass-subj-bio {
+  background: linear-gradient(
+    142deg,
+    rgba(209, 250, 229, var(--glass-subj-alpha)) 0%,
+    rgba(110, 231, 183, var(--glass-subj-alpha-low)) 100%
+  );
+  border: 1.5px solid rgba(16, 185, 129, 0.72);
+  box-shadow:
+    0 4px 12px rgba(16, 185, 129, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.78);
+}
+
+.dark .ios-glass-subj-bio {
+  background: linear-gradient(
+    142deg,
+    rgba(6, 110, 88, var(--glass-subj-alpha)) 0%,
+    rgba(6, 72, 68, var(--glass-subj-alpha-low)) 100%
+  );
+  border: 1.5px solid rgba(52, 211, 153, 0.56);
+  box-shadow:
+    0 6px 14px rgba(2, 6, 23, 0.38),
+    inset 0 1px 0 rgba(167, 243, 208, 0.24);
+}
+
+.ios-glass-subj-phy {
+  background: linear-gradient(
+    142deg,
+    rgba(255, 237, 213, var(--glass-subj-alpha)) 0%,
+    rgba(253, 186, 116, var(--glass-subj-alpha-low)) 100%
+  );
+  border: 1.5px solid rgba(249, 115, 22, 0.72);
+  box-shadow:
+    0 4px 12px rgba(249, 115, 22, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.78);
+}
+
+.dark .ios-glass-subj-phy {
+  background: linear-gradient(
+    142deg,
+    rgba(138, 60, 24, var(--glass-subj-alpha)) 0%,
+    rgba(88, 36, 46, var(--glass-subj-alpha-low)) 100%
+  );
+  border: 1.5px solid rgba(251, 146, 60, 0.56);
+  box-shadow:
+    0 6px 14px rgba(2, 6, 23, 0.38),
+    inset 0 1px 0 rgba(254, 215, 170, 0.24);
+}
+
+.ios-glass-subj-chem {
+  background: linear-gradient(
+    142deg,
+    rgba(237, 233, 254, var(--glass-subj-alpha)) 0%,
+    rgba(196, 181, 253, var(--glass-subj-alpha-low)) 100%
+  );
+  border: 1.5px solid rgba(139, 92, 246, 0.72);
+  box-shadow:
+    0 4px 12px rgba(124, 58, 237, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.78);
+}
+
+.dark .ios-glass-subj-chem {
+  background: linear-gradient(
+    142deg,
+    rgba(91, 33, 182, var(--glass-subj-alpha)) 0%,
+    rgba(59, 26, 130, var(--glass-subj-alpha-low)) 100%
+  );
+  border: 1.5px solid rgba(167, 139, 250, 0.56);
+  box-shadow:
+    0 6px 14px rgba(2, 6, 23, 0.38),
+    inset 0 1px 0 rgba(221, 214, 254, 0.24);
+}
+
+/* Arctic Chrome Bars (TopBar, Floating Capsule Dock, Modal) */
+.ios-glass-topbar {
+  backdrop-filter: blur(12px) saturate(145%);
+  -webkit-backdrop-filter: blur(12px) saturate(145%);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, var(--glass-chrome-light)) 0%,
+    rgba(229, 242, 255, var(--glass-chrome-light-low)) 100%
+  );
+  border-bottom: 1px solid rgba(255, 255, 255, var(--glass-border-light));
+  box-shadow: 0 4px 14px rgba(14, 48, 122, 0.08);
+}
+
+.dark .ios-glass-topbar {
+  background: linear-gradient(
+    180deg,
+    rgba(8, 28, 82, var(--glass-chrome-dark)) 0%,
+    rgba(3, 13, 44, var(--glass-chrome-dark-low)) 100%
+  );
+  border-bottom: 1px solid rgba(125, 211, 252, calc(var(--glass-border-dark) * 0.55));
+  box-shadow: 0 4px 18px rgba(2, 6, 23, 0.48);
+}
+
+.ios-glass-dock {
+  backdrop-filter: blur(14px) saturate(150%);
+  -webkit-backdrop-filter: blur(14px) saturate(150%);
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, clamp(0.42, calc(var(--glass-chrome-light) + 0.14), 0.96)) 0%,
+    rgba(224, 242, 254, clamp(0.38, calc(var(--glass-chrome-light-low) + 0.12), 0.94)) 100%
+  );
+  border: 1.5px solid rgba(255, 255, 255, var(--glass-border-light));
+  box-shadow:
+    0 12px 30px rgba(14, 48, 122, 0.16),
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.96);
+}
+
+.dark .ios-glass-dock {
+  background: linear-gradient(
+    160deg,
+    rgba(15, 48, 132, clamp(0.52, calc(var(--glass-chrome-dark) + 0.20), 0.96)) 0%,
+    rgba(5, 19, 64, clamp(0.48, calc(var(--glass-chrome-dark-low) + 0.18), 0.94)) 100%
+  );
+  border: 1.5px solid rgba(125, 211, 252, calc(var(--glass-border-dark) * 0.65));
+  box-shadow:
+    0 14px 32px rgba(2, 6, 23, 0.62),
+    inset 0 1.5px 0 rgba(186, 230, 253, 0.34);
+}
+
+.ios-glass-modal {
+  backdrop-filter: blur(14px) saturate(145%);
+  -webkit-backdrop-filter: blur(14px) saturate(145%);
+  background: linear-gradient(
+    152deg,
+    rgba(255, 255, 255, var(--glass-modal-light)) 0%,
+    rgba(229, 242, 255, var(--glass-modal-light-low)) 58%,
+    rgba(219, 238, 255, var(--glass-modal-light-low)) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, var(--glass-border-light));
+  box-shadow:
+    0 18px 36px rgba(14, 48, 122, 0.20),
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.96);
+}
+
+.dark .ios-glass-modal {
+  background: linear-gradient(
+    152deg,
+    rgba(14, 46, 124, var(--glass-modal-dark)) 0%,
+    rgba(6, 21, 66, var(--glass-modal-dark-low)) 58%,
+    rgba(4, 15, 48, var(--glass-modal-dark-low)) 100%
+  );
+  border: 1px solid rgba(125, 211, 252, calc(var(--glass-border-dark) * 0.68));
+  box-shadow:
+    0 18px 38px rgba(2, 6, 23, 0.64),
+    inset 0 1.5px 0 rgba(186, 230, 253, 0.30);
+}
+
+.ios-glass-control {
+  background: linear-gradient(
+    144deg,
+    rgba(255, 255, 255, var(--glass-control-light)) 0%,
+    rgba(229, 242, 255, var(--glass-alpha-low)) 100%
+  );
+  border: 1px solid rgba(255, 255, 255, var(--glass-border-light));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.88);
+}
+
+.dark .ios-glass-control {
+  background: linear-gradient(
+    144deg,
+    rgba(22, 66, 168, var(--glass-control-dark)) 0%,
+    rgba(9, 32, 92, var(--glass-dark-alpha-low)) 100%
+  );
+  border: 1px solid rgba(125, 211, 252, calc(var(--glass-border-dark) * 0.58));
+  box-shadow: inset 0 1px 0 rgba(186, 230, 253, 0.22);
+}
+
+/* =====================================================================
+ * MAXIMUM GALAXY A07 60FPS MODE (.a07-perf on <html>)
+ * Disables live scroll-frame GPU backdrop-filter blurs and idle pulses,
+ * while KEEPING full live transparency slider responsiveness!
+ * ===================================================================== */
+.a07-perf .ios-glass-topbar,
+.a07-perf .ios-glass-dock,
+.a07-perf .ios-glass-modal {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+.a07-perf .animate-beacon,
+.a07-perf .animate-scanner-beam {
+  animation: none !important;
+}
+
+/* Instant GPU-composited bottom sheet entrance (replaces heavy JS spring + scale rasterization) */
+@keyframes sheetSlideIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.animate-sheet-in {
+  animation: sheetSlideIn 140ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  will-change: transform, opacity;
+}
+
+/* =====================================================================
+ * AMBIENT KEYFRAMES (Paused automatically in a07-perf / Hidden tabs)
+ * ===================================================================== */
+
+@keyframes ribbonDriftA {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(28px, 20px, 0) scale(1.06);
+  }
+}
+
+@keyframes ribbonDriftB {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(-24px, -18px, 0) scale(1.05);
+  }
+}
+
+@keyframes orbSpinCW {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbSpinCCW {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes crystalSweep {
+  0% {
+    transform: translate3d(-130%, 0, 0) skewX(-18deg);
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.75;
+  }
+  100% {
+    transform: translate3d(230%, 0, 0) skewX(-18deg);
+    opacity: 0;
+  }
+}
+
+@keyframes scannerBeam {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+  }
+  100% {
+    transform: translate3d(220%, 0, 0);
+  }
+}
+
+@keyframes pulseBeacon {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.95;
+  }
+  50% {
+    transform: scale(1.38);
+    opacity: 0.45;
+  }
+}
+
+.animate-orb-a {
+  animation: ribbonDriftA 14s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-orb-b {
+  animation: ribbonDriftB 18s ease-in-out infinite;
+  will-change: transform;
+}
+
+.animate-spin-cw {
+  animation: orbSpinCW 28s linear infinite;
+  will-change: transform;
+}
+
+.animate-spin-ccw {
+  animation: orbSpinCCW 38s linear infinite;
+  will-change: transform;
+}
+
+.animate-crystal-sweep {
+  animation: crystalSweep 720ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
+}
+
+.animate-scanner-beam {
+  animation: scannerBeam 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: transform;
+}
+
+.animate-beacon {
+  animation: pulseBeacon 2s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-orb-a,
+  .animate-orb-b,
+  .animate-spin-cw,
+  .animate-spin-ccw,
+  .animate-crystal-sweep,
+  .animate-scanner-beam,
+  .animate-beacon,
+  .animate-sheet-in {
+    animation: none !important;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* =====================================================================
+ * v3.4.0 APPEARANCE STUDIO (Wired Accents, Palettes, Prism Rims & FX)
+ * ===================================================================== */
+
+:root {
+  --studio-accent: #2563EB;
+  --studio-accent-2: #22D3EE;
+  --studio-accent-glow: rgba(37, 99, 235, 0.42);
+  --studio-rim: #38BDF8;
+}
+
+.studio-accent-bg {
+  background: linear-gradient(135deg, var(--studio-accent) 0%, var(--studio-accent-2) 100%);
+  box-shadow: 0 8px 20px var(--studio-accent-glow);
+}
+
+.studio-accent-bar {
+  background: linear-gradient(90deg, var(--studio-accent) 0%, var(--studio-accent-2) 100%);
+  box-shadow: 0 0 10px var(--studio-accent-glow);
+}
+
+.studio-accent-text {
+  color: var(--studio-accent);
+}
+.dark .studio-accent-text {
+  color: var(--studio-accent-2);
+}
+
+/* Gold+: Neon Frost (High-contrast neon rim + core frost) */
+.palette-neon-frost .ios-glass-subj-bio {
+  background: linear-gradient(142deg, rgba(209, 250, 229, var(--glass-subj-alpha)) 0%, rgba(167, 243, 208, var(--glass-subj-alpha-low)) 100%);
+  border: 2px solid #10B981;
+  box-shadow: 0 0 22px rgba(16, 185, 129, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.92);
+}
+.palette-neon-frost .ios-glass-subj-phy {
+  background: linear-gradient(142deg, rgba(255, 237, 213, var(--glass-subj-alpha)) 0%, rgba(254, 215, 170, var(--glass-subj-alpha-low)) 100%);
+  border: 2px solid #F97316;
+  box-shadow: 0 0 22px rgba(249, 115, 22, 0.36), inset 0 1px 0 rgba(255, 255, 255, 0.92);
+}
+.palette-neon-frost .ios-glass-subj-chem {
+  background: linear-gradient(142deg, rgba(237, 233, 254, var(--glass-subj-alpha)) 0%, rgba(221, 214, 254, var(--glass-subj-alpha-low)) 100%);
+  border: 2px solid #8B5CF6;
+  box-shadow: 0 0 22px rgba(139, 92, 246, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.92);
+}
+.dark.palette-neon-frost .ios-glass-subj-bio {
+  background: linear-gradient(142deg, rgba(3, 52, 46, var(--glass-subj-alpha)) 0%, rgba(4, 34, 42, var(--glass-subj-alpha-low)) 100%);
+  border: 2px solid #34D399;
+  box-shadow: 0 0 24px rgba(16, 185, 129, 0.45), inset 0 0 14px rgba(52, 211, 153, 0.22);
+}
+.dark.palette-neon-frost .ios-glass-subj-phy {
+  background: linear-gradient(142deg, rgba(64, 24, 14, var(--glass-subj-alpha)) 0%, rgba(42, 16, 26, var(--glass-subj-alpha-low)) 100%);
+  border: 2px solid #FB923C;
+  box-shadow: 0 0 24px rgba(249, 115, 22, 0.45), inset 0 0 14px rgba(251, 146, 60, 0.22);
+}
+.dark.palette-neon-frost .ios-glass-subj-chem {
+  background: linear-gradient(142deg, rgba(46, 16, 98, var(--glass-subj-alpha)) 0%, rgba(24, 14, 62, var(--glass-subj-alpha-low)) 100%);
+  border: 2px solid #A78BFA;
+  box-shadow: 0 0 24px rgba(139, 92, 246, 0.48), inset 0 0 14px rgba(167, 139, 250, 0.24);
+}
+
+/* Platinum+: Pastel Prism */
+.palette-pastel-prism .ios-glass-subj-bio {
+  background: linear-gradient(135deg, rgba(167, 243, 208, var(--glass-subj-alpha)), rgba(165, 243, 252, var(--glass-subj-alpha-low)));
+  border: 1.5px solid rgba(45, 212, 191, 0.85);
+}
+.palette-pastel-prism .ios-glass-subj-phy {
+  background: linear-gradient(135deg, rgba(254, 215, 170, var(--glass-subj-alpha)), rgba(254, 205, 211, var(--glass-subj-alpha-low)));
+  border: 1.5px solid rgba(251, 113, 133, 0.8);
+}
+.palette-pastel-prism .ios-glass-subj-chem {
+  background: linear-gradient(135deg, rgba(221, 214, 254, var(--glass-subj-alpha)), rgba(191, 219, 254, var(--glass-subj-alpha-low)));
+  border: 1.5px solid rgba(167, 139, 250, 0.85);
+}
+.dark.palette-pastel-prism .ios-glass-subj-bio {
+  background: linear-gradient(135deg, rgba(13, 148, 136, var(--glass-subj-alpha)), rgba(8, 145, 178, var(--glass-subj-alpha-low)));
+  border: 1.5px solid rgba(94, 234, 212, 0.72);
+}
+.dark.palette-pastel-prism .ios-glass-subj-phy {
+  background: linear-gradient(135deg, rgba(194, 65, 12, var(--glass-subj-alpha)), rgba(190, 24, 93, var(--glass-subj-alpha-low)));
+  border: 1.5px solid rgba(253, 186, 116, 0.72);
+}
+.dark.palette-pastel-prism .ios-glass-subj-chem {
+  background: linear-gradient(135deg, rgba(109, 40, 217, var(--glass-subj-alpha)), rgba(29, 78, 216, var(--glass-subj-alpha-low)));
+  border: 1.5px solid rgba(196, 181, 253, 0.75);
+}
+
+/* Apex+: Vivid Lab (Rich high-saturation luminous cards) */
+.palette-vivid-lab .ios-glass-subj-bio {
+  background: linear-gradient(142deg, rgba(52, 211, 153, var(--glass-subj-alpha)), rgba(16, 185, 129, var(--glass-subj-alpha-low)));
+  border: 2px solid #059669;
+  box-shadow: 0 8px 20px rgba(16, 185, 129, 0.30);
+}
+.palette-vivid-lab .ios-glass-subj-phy {
+  background: linear-gradient(142deg, rgba(251, 146, 60, var(--glass-subj-alpha)), rgba(245, 158, 11, var(--glass-subj-alpha-low)));
+  border: 2px solid #EA580C;
+  box-shadow: 0 8px 20px rgba(249, 115, 22, 0.30);
+}
+.palette-vivid-lab .ios-glass-subj-chem {
+  background: linear-gradient(142deg, rgba(167, 139, 250, var(--glass-subj-alpha)), rgba(139, 92, 246, var(--glass-subj-alpha-low)));
+  border: 2px solid #7C3AED;
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.32);
+}
+.dark.palette-vivid-lab .ios-glass-subj-bio {
+  background: linear-gradient(142deg, rgba(5, 150, 105, var(--glass-subj-alpha)), rgba(6, 95, 70, var(--glass-subj-alpha-low)));
+  border: 2px solid #6EE7B7;
+  box-shadow: 0 8px 24px rgba(16, 185, 129, 0.42);
+}
+.dark.palette-vivid-lab .ios-glass-subj-phy {
+  background: linear-gradient(142deg, rgba(234, 88, 12, var(--glass-subj-alpha)), rgba(154, 52, 18, var(--glass-subj-alpha-low)));
+  border: 2px solid #FDBA74;
+  box-shadow: 0 8px 24px rgba(249, 115, 22, 0.42);
+}
+.dark.palette-vivid-lab .ios-glass-subj-chem {
+  background: linear-gradient(142deg, rgba(124, 58, 237, var(--glass-subj-alpha)), rgba(76, 29, 149, var(--glass-subj-alpha-low)));
+  border: 2px solid #DDD6FE;
+  box-shadow: 0 8px 24px rgba(139, 92, 246, 0.44);
+}
+
+/* Diamond+: Iridescent Prism Card Rims (True holographic refraction edge) */
+.studio-prism .ios-glass,
+.studio-prism .ios-glass-hero,
+.studio-prism .ios-glass-strong {
+  border-color: color-mix(in srgb, var(--studio-rim) 72%, #FFFFFF 28%);
+  box-shadow:
+    0 12px 30px color-mix(in srgb, var(--studio-rim) 26%, transparent),
+    inset 0 1.5px 0 rgba(255, 255, 255, 0.96),
+    inset 0 0 0 1.5px color-mix(in srgb, var(--studio-rim) 55%, #A855F7 45%);
+}
+
+.dark.studio-prism .ios-glass,
+.dark.studio-prism .ios-glass-hero,
+.dark.studio-prism .ios-glass-strong {
+  border-color: color-mix(in srgb, var(--studio-rim) 78%, #E0F2FE 22%);
+  box-shadow:
+    0 14px 36px rgba(2, 6, 23, 0.62),
+    0 0 26px color-mix(in srgb, var(--studio-rim) 34%, transparent),
+    inset 0 1.5px 0 rgba(224, 242, 254, 0.52),
+    inset 0 0 0 1.5px color-mix(in srgb, var(--studio-rim) 60%, #A855F7 40%);
+}
+
+/* GPU-Composited Particles (allowed even with A07 60fps mode!) */
+@keyframes floatParticle {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.35;
+  }
+  50% {
+    transform: translate3d(18px, -32px, 0) scale(1.25);
+    opacity: 0.92;
+  }
+}
+
+.animate-particle {
+  animation: floatParticle 8.5s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Completion FX animations (Ripple, Crystal Burst, Aurora Flash) */
+@keyframes fxRippleOut {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.85;
+  }
+  100% {
+    transform: scale(1.12);
+    opacity: 0;
+  }
+}
+
+@keyframes fxBurstPop {
+  0% {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+  65% {
+    transform: scale(1.22);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+}
+
+.animate-fx-ripple {
+  animation: fxRippleOut 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fx-burst {
+  animation: fxBurstPop 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+
